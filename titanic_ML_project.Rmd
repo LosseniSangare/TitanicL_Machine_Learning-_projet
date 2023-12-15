@@ -12,6 +12,10 @@ View(titanic)
 
 ```
 
+```{r}
+options(repos = c(CRAN = "https://cran.r-project.org"))# pour permettre l'execution du Knit
+```
+
 
 ```{r}
 tail(titanic)
@@ -86,12 +90,13 @@ rpart.plot(fit)
 
 
 ```{r}
-predict_unseen <-predict(fit, data=data_test, type = 'class')
+predict_unseen <-predict(fit, newdata=data_test, type = 'class')
 
 length(predict_unseen)
 ```
 
 ```{r}
 table_mat <- table(data_test$survived, predict_unseen)
+table_mat
 ```
 
